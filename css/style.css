@@ -20,10 +20,28 @@ body{
   font-family: Arial;
 }
 
+
+
+
 #wrapper{
   margin: 0 auto;
-  width: 900px;
+  width: 100%;
 }
+
+@media only screen and (min-width:768px){
+  #wrapper{
+    margin: 0 auto;
+    width: 680px;
+  }
+}
+
+@media only screen and (min-width:1024px){
+  #wrapper{
+    margin: 0 auto;
+    width: 960px;
+  }
+}
+
 
 header, 
 footer{
@@ -70,11 +88,11 @@ ul#gallery{
 #gallery li{
   float: left; 
   margin: 5px 5px 0 0;
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   background-color: #DDD;
   text-align: center;
-  line-height: 75px;
+  line-height: 70px;
   color: black;
   font-size: 22px;
 }
