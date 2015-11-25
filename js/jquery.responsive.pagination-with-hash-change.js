@@ -74,10 +74,8 @@
                     '#' + hash;
             },
             clear: function () {
-                window.location = this.protocol +
-                    this.host +
-                    this.pathname +
-                    this.search 
+                // no refresh
+                window.location.replace('#')
             },
             get: function () {
                 return window.location.hash.replace('#', '');
@@ -229,18 +227,19 @@
   
 
         _setInitalPage: function(initValue) {
-            var h = Hash.get();
-            return (h  === "") ? initValue : h;
+           
+            return initValue;
         },
         
 
         destroy: function() {
             
             this.obj.removeData();
-            $(document).undelegate( this.options.prevSelector, 'click touch')
-            $(document).undelegate( this.options.nextSelector, 'click touch')
-            $(document).undelegate( this.options.pagingSelector + ' a', 'click touch')
-            $(this.options.pagingSelector).empty();
+            $(document).undelegate( this.options.prevSelector, 'click touch');
+            $(document).undelegate( this.options.nextSelector, 'click touch');
+            $(document).undelegate( this.options.pagingSelector + ' a', 'click touch');
+            $(this.options.pagingSelector).find('ul').remove();
+            $(this.options.counterSelector).empty();
             $(this.element).find('li').removeAttr('style');
             Hash.clear();
             console.log('-- clear one plugin instance of ResponsivePagination --');
